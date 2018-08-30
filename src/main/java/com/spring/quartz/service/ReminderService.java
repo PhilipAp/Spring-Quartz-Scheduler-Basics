@@ -10,11 +10,15 @@ import com.spring.quartz.repository.ReminderRepository;
 
 @Service
 public class ReminderService {
-
-	@Autowired
-	private ReminderRepository reminderRepository;
 	
-	public List<Reminder> getAllReminders(){
+private ReminderRepository reminderRepository;
+
+	
+public class ReminderService(ReminderRepository reminderRepository){
+        this.reminderRepository = reminderRepository;
+}
+
+public List<Reminder> getAllReminders(){
 		return reminderRepository.findAll();
 	}
 	
