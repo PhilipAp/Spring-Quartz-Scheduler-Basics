@@ -12,11 +12,14 @@ import com.spring.quartz.repository.UserRepository;
 
 @Service
 public class UserService {
-
-	@Autowired
-	private UserRepository userRepository;
 	
-	public List<User> getAllUsers(){
+private UserRepository userRepository;
+	
+public class UserService(UserRepository userRepository){
+	this.userRepository = userRepository;
+}
+
+public List<User> getAllUsers(){
 		return userRepository.findAll();
 	}
 	
